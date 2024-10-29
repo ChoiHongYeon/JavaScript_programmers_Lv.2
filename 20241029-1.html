@@ -1,0 +1,37 @@
+<!-- 멀리 뛰기 (https://school.programmers.co.kr/learn/courses/30/lessons/12914?language=javascript) -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<script>
+	
+	function solution(n) {
+
+		if (n == 1)
+			return 1;
+		if (n == 2)
+			return 2;
+
+		let bb = 1;
+		let b = 2;
+		let answer = 0;
+
+		for (let i=3; i<=n; i++) {
+			answer = (bb + b) % 1234567;
+			bb = b;
+			b = answer;
+		}
+	    
+	    return answer;
+
+	}
+
+	document.write(solution(4) + " " + solution(3));
+
+</script>
+</body>
+</html>
