@@ -1,0 +1,35 @@
+<!-- n^2 배열 자르기 (https://school.programmers.co.kr/learn/courses/30/lessons/87390?language=javascript) -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<script>
+	
+	function solution(n, left, right) {
+
+	    var answer = new Array(right - left + 1);
+	    let a = 0;
+	    for (let i=left; i<=right; i++) {
+	    	if ((i + 1) % n == 0)
+	    		answer[a++] = n;
+	    	else {
+	    		let q = Math.floor((i + 1) / n) + 1;
+	    		let r = (i + 1) % n;
+	    		answer[a++] = Math.max(q, r);
+	    	}
+	    }
+
+	    return answer;
+
+	}
+
+	document.write(solution(3, 2, 5) + "<br>");
+	document.write(solution(4, 7, 14) + "<br>");
+
+</script>
+</body>
+</html>
