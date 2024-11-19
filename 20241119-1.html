@@ -1,0 +1,41 @@
+<!-- 의상 (https://school.programmers.co.kr/learn/courses/30/lessons/42578?language=javascript) -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<script>
+
+	function solution(clothes) {
+
+	    var answer = 1;
+	    let kinds = [];
+	    let numbers = [];
+
+	    for (let i=0; i<clothes.length; i++) {
+	    	if (kinds.includes(clothes[i][1]))
+	    		numbers[kinds.indexOf(clothes[i][1])]++;
+	    	else {
+	    		kinds.push(clothes[i][1]);
+	    		numbers.push(1);
+	    	}
+	    }
+
+	    for (let i=0; i<numbers.length; i++) {
+	    	answer *= numbers[i] + 1;
+	    }
+
+	    return answer - 1;
+
+	}
+
+	document.write(solution([["yellow_hat", "headgear"], ["blue_sunglasses", "eyewear"], ["green_turban", "headgear"]]));
+	document.write("<br>");
+	document.write(solution([["crow_mask", "face"], ["blue_sunglasses", "face"], ["smoky_makeup", "face"]]));
+
+</script>
+</body>
+</html>
