@@ -1,0 +1,39 @@
+<!-- 전화번호 목록 (https://school.programmers.co.kr/learn/courses/30/lessons/42577?language=javascript) -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+<script>
+
+	function solution(phone_book) {
+
+		if (phone_book.length == 1)
+			return true;
+
+		phone_book.sort();
+	    var answer = true;
+	    for (let i=1; i<phone_book.length; i++) {
+	    	if (phone_book[i].length >= phone_book[i - 1].length && phone_book[i].substr(0, phone_book[i - 1].length) == phone_book[i - 1]) {
+	    		answer = false;
+	    		break;
+	    	}
+	    }
+
+	    return answer;
+
+	}
+
+	let phone_book1 = ["119", "97674223", "1195524421"];
+	let phone_book2 = ["123","456","789"];
+	let phone_book3 = ["12","123","1235","567","88"];
+	document.write(solution(phone_book1) + "<br>");
+	document.write(solution(phone_book2) + "<br>");
+	document.write(solution(phone_book3) + "<br>");
+
+</script>
+</body>
+</html>
